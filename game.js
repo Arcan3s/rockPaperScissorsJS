@@ -1,35 +1,41 @@
 function getComputerChoice() {
-    const choice = ["Rock", "Paper", "Scissors"];
+    const choice = ["rock", "paper", "scissors"];
     const randomChoice = Math.floor(Math.random() * choice.length);
     console.log(choice[randomChoice]);
     return choice[randomChoice]; // randomChoice is index number in choice array from 0 to 2
 }
 
 function playRound(playerSelection, computerSelection) {
-    if (playerSelection === "Rock") {
+    if (playerSelection === "rock") {
         return computerSelection === playerSelection ? "Tie! Rock can't beat itself." :
-        computerSelection === "Paper" ? "You Lose! Paper beats Rock." :
+        computerSelection === "paper" ? "You Lose! Paper suffocates Rock." :
         "You Win! Rock crushes Scissors.";
-    } else if (playerSelection === "Paper") {
+    } else if (playerSelection === "paper") {
         return computerSelection === playerSelection ? "Tie! Paper can't beat itself." :
-        computerSelection === "Scissors" ? "You Lose! Scissors cuts Paper." :
+        computerSelection === "scissors" ? "You Lose! Scissors cuts Paper." :
         "You Win! Paper suffocates Rock.";
-    } else {
+    } else if (playerSelection === "scissors") {
         return computerSelection === playerSelection ? "Tie! Scissors can't beat itself." :
-        computerSelection === "Rock" ? "You Lose! Rock crushes Scissors." :
+        computerSelection === "rock" ? "You Lose! Rock crushes Scissors." :
         "You Win! Scissors cuts Paper.";
     }
 }
 
-let playerSelection = "Scissors";
+function playGame() {
+    let score = 0;
+    for (let i = 0; i < 5; i++) {
+        let result = playRound(playerSelection, computerSelection);
+        if (result === "You Win! Scissors cuts Paper.") {
+            score += 1;
+            console.log(score);
+        }
+
+    }
+}
+
+let playerSelection = "SCisSors";
+playerSelection = playerSelection.toLowerCase();
+console.log(playerSelection);
 let computerSelection = getComputerChoice();
-console.log(playRound(playerSelection, computerSelection));
-
-
-// FUNCTION playRound(playerSelection, computerSelection)
-//      IF playerSelection === "Rock"
-//          IF computerSelection === playerSelection
-//               return "Tie!"
-//          ELSE IF computerSelection === "Paper"
-//              return "You Lose!"
-//          ELSE return "You Win!"
+playGame();
+// console.log(playRound(playerSelection, computerSelection));
