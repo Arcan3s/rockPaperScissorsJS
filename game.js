@@ -7,35 +7,40 @@ function getComputerChoice() {
 
 function playRound(playerSelection, computerSelection) {
     if (playerSelection === "rock") {
-        return computerSelection === playerSelection ? "Tie! Rock can't beat itself." :
-        computerSelection === "paper" ? "You Lose! Paper suffocates Rock." :
-        "You Win! Rock crushes Scissors.";
+        return computerSelection === playerSelection ? "Tie" :
+        computerSelection === "paper" ? "Lose" :
+        "Win";
     } else if (playerSelection === "paper") {
-        return computerSelection === playerSelection ? "Tie! Paper can't beat itself." :
-        computerSelection === "scissors" ? "You Lose! Scissors cuts Paper." :
-        "You Win! Paper suffocates Rock.";
+        return computerSelection === playerSelection ? "Tie" :
+        computerSelection === "scissors" ? "Lose" :
+        "Win";
     } else if (playerSelection === "scissors") {
-        return computerSelection === playerSelection ? "Tie! Scissors can't beat itself." :
-        computerSelection === "rock" ? "You Lose! Rock crushes Scissors." :
-        "You Win! Scissors cuts Paper.";
+        return computerSelection === playerSelection ? "Tie" :
+        computerSelection === "rock" ? "Lose" :
+        "Win";
     }
 }
 
 function playGame() {
     let score = 0;
     for (let i = 0; i < 5; i++) {
+        let computerSelection = getComputerChoice();
+        let playerSelection = prompt("Enter Rock, Paper, or Scissors: ").toLowerCase();
+        console.log(playerSelection);
         let result = playRound(playerSelection, computerSelection);
-        if (result === "You Win! Scissors cuts Paper.") {
+        console.log(result);
+        if (result === "Win") {
             score += 1;
-            console.log(score);
+            console.log(`You Win! ${playerSelection} beats ${computerSelection}.`)
+        } else if (result === "Lose") {
+            console.log(`You Lose! ${computerSelection} beats your ${playerSelection}.`)
+        } else {
+            console.log(`It's a Tie! ${playerSelection} can't beat itself...`)
         }
+        console.log(score);
 
     }
 }
 
-let playerSelection = "SCisSors";
-playerSelection = playerSelection.toLowerCase();
-console.log(playerSelection);
-let computerSelection = getComputerChoice();
 playGame();
 // console.log(playRound(playerSelection, computerSelection));
