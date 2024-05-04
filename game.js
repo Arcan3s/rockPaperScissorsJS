@@ -7,25 +7,35 @@ function getComputerChoice() {
 function getHumanChoice() {
     const humanChoice = prompt("Enter Rock, Paper, or Scissors: ").toLowerCase();
     return humanChoice;
+    // let valid_choice = false;
+    // while (valid_choice) {
+    //     if (humanChoice === "rock" || humanChoice === "paper" || humanChoice === "scissors") {
+    //         valid_choice = true;
+    //         return humanChoice;
+    //     } else {
+    //         humanChoice;
+    //     }
+    // }
 }
 
-function playRound(playerSelection, computerSelection) {
-    if (playerSelection === "rock") {
-        return computerSelection === playerSelection ? "Tie" :
-        computerSelection === "paper" ? "Lose" :
-        "Win";
-    } else if (playerSelection === "paper") {
-        return computerSelection === playerSelection ? "Tie" :
-        computerSelection === "scissors" ? "Lose" :
-        "Win";
-    } else if (playerSelection === "scissors") {
-        return computerSelection === playerSelection ? "Tie" :
-        computerSelection === "rock" ? "Lose" :
-        "Win";
-    }
-}
+
 // Make it so player has to re-enter if not a valid option
 function playGame() {
+    function playRound(playerSelection, computerSelection) {
+        if (playerSelection === "rock") {
+            return computerSelection === playerSelection ? "Tie" :
+            computerSelection === "paper" ? "Lose" :
+            "Win";
+        } else if (playerSelection === "paper") {
+            return computerSelection === playerSelection ? "Tie" :
+            computerSelection === "scissors" ? "Lose" :
+            "Win";
+        } else if (playerSelection === "scissors") {
+            return computerSelection === playerSelection ? "Tie" :
+            computerSelection === "rock" ? "Lose" :
+            "Win";
+        }
+    }
     let playerScore = 0;
     let computerScore = 0;
     let round = 1;
@@ -48,17 +58,7 @@ function playGame() {
         }
         console.log(`Player Score: ${playerScore}\nComputer Score: ${computerScore}`);
     }
-    // return playerScore > computerScore ? "WINNER!" :
-    // "LOSER!";
     return playerScore > computerScore ? "WINNER!" : playerScore === computerScore ? "TIE GAME!" : "LOSER!";
 }
 
 console.log(playGame());
-
-// function convertInput() {
-// 	LET playerSelection = prompt().toLowerCase()
-// 	IF playerSelection !== "rock" || "paper" || "scissors"
-// 		playerSelection
-// 	ELSE
-// 		RETURN playerSelection
-// }
