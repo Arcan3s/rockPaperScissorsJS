@@ -6,17 +6,22 @@ function getComputerChoice() {
 
 function getHumanChoice() {
     const humanChoice = prompt("Enter Rock, Paper, or Scissors: ").toLowerCase();
-    return humanChoice;
-    // let valid_choice = false;
-    // while (valid_choice) {
-    //     if (humanChoice === "rock" || humanChoice === "paper" || humanChoice === "scissors") {
-    //         valid_choice = true;
-    //         return humanChoice;
-    //     } else {
-    //         humanChoice;
-    //     }
-    // }
+    if (humanChoice === "rock" || humanChoice === "paper" || humanChoice === "scissors") {
+        return humanChoice;
+    } else {
+        return getHumanChoice();
+    }
 }
+
+// let invalid_choice = true;
+//     while (invalid_choice) {
+//         if (humanChoice === "rock" || humanChoice === "paper" || humanChoice === "scissors") {
+//             invalid_choice = false;
+//             break;
+//         } else {
+//             humanChoice;
+//         }
+//     }
 
 
 // Make it so player has to re-enter if not a valid option
