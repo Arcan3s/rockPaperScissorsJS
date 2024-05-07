@@ -9,22 +9,11 @@ function getHumanChoice() {
     if (humanChoice === "rock" || humanChoice === "paper" || humanChoice === "scissors") {
         return humanChoice;
     } else {
+        alert("Not a valid choice. Please enter Rock, Paper, or Scissors.")
         return getHumanChoice();
     }
 }
 
-// let invalid_choice = true;
-//     while (invalid_choice) {
-//         if (humanChoice === "rock" || humanChoice === "paper" || humanChoice === "scissors") {
-//             invalid_choice = false;
-//             break;
-//         } else {
-//             humanChoice;
-//         }
-//     }
-
-
-// Make it so player has to re-enter if not a valid option
 function playGame() {
     function playRound(playerSelection, computerSelection) {
         if (playerSelection === "rock") {
